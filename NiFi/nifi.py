@@ -54,7 +54,7 @@ new_config = open("/usr/nifi/conf/nifi.properties.new", "w")
 with open("/usr/nifi/conf/nifi.properties", "r") as f:	
 	for line in f:
 		if line.find("nifi.web.http.host") == 0:
-			line = "nifi.web.http.host="+socket.gethostbyname(socket.gethostname())
+			line = "nifi.web.http.host="+socket.gethostbyname(socket.gethostname())+"\n"
 		if line.find("nifi.web.http.port") == 0:
 			line = "nifi.web.http.port=%s\n" % WEBSERVER_PORT
 		if line.find("nifi.cluster.is.node") == 0:
